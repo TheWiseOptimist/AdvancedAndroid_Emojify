@@ -28,5 +28,6 @@ public class Emojifier {
         Log.i(TAG, message + faces.size());
         Toast.makeText(context, message + faces.size(), Toast.LENGTH_SHORT).show();
 
+        faceDetector.release();
     }
 }
