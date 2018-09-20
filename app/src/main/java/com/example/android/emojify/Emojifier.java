@@ -18,6 +18,7 @@ public class Emojifier {
 
         FaceDetector faceDetector = new FaceDetector.Builder(context)
                 .setTrackingEnabled(false)
+                .setClassificationType(FaceDetector.ALL_CLASSIFICATIONS)
                 .build();
 
         Frame frame = new Frame.Builder().setBitmap(bitmap).build();
