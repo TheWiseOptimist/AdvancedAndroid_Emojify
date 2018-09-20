@@ -121,6 +121,21 @@ class Emojifier {
             else if (is_left_eye_open) emoji = Emoji.LEFT_FROWNING;
             else emoji = Emoji.CLOSED_FROWNING;
         }
+
+//        if (is_smiling) {
+//            if (is_right_eye_open) {
+//                if (is_left_eye_open) emoji = Emoji.OPEN_SMILING;
+//                else emoji = Emoji.RIGHT_SMILING;
+//            } else if (is_left_eye_open) emoji = Emoji.LEFT_SMILING;
+//            else emoji = Emoji.CLOSED_SMILING;
+//        } else {
+//            if (is_right_eye_open) {
+//                if (is_left_eye_open) emoji = Emoji.OPEN_FROWNING;
+//                else emoji = Emoji.RIGHT_FROWNING;
+//            } else if (is_left_eye_open) emoji = Emoji.LEFT_FROWNING;
+//            else emoji = Emoji.CLOSED_FROWNING;
+//        }
+
         Log.d(LOG_TAG, emoji.toString());
     }
 
