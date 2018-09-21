@@ -43,6 +43,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import timber.log.Timber;
+
 public class MainActivity extends AppCompatActivity {
 
 
@@ -73,7 +75,10 @@ public class MainActivity extends AppCompatActivity {
         // Bind the views
         ButterKnife.bind(this);
 
-        // TODO (2): Set up Timber
+        // TODO completed (2): Set up Timber
+        if (BuildConfig.DEBUG) {
+            Timber.plant(new Timber.DebugTree());
+        }
     }
 
     /**
@@ -235,4 +240,5 @@ public class MainActivity extends AppCompatActivity {
         // Delete the temporary image file
         BitmapUtils.deleteImageFile(this, mTempPhotoPath);
     }
+
 }
