@@ -32,9 +32,10 @@ class Emojifier {
 
     private static final String LOG_TAG = Emojifier.class.getSimpleName();
 
-    private static final float EMOJI_SCALE_FACTOR = .9f;  // TODO: 9/20/18 no indication in lesson where this came from
+    private static final float EMOJI_SCALE_FACTOR = 1.0f;  // TODO: 9/20/18 no indication in lesson where this came from
     private static final double SMILING_PROB_THRESHOLD = .15;
     private static final double EYE_OPEN_PROB_THRESHOLD = .5;
+    public static String message;
 
     /**
      * Method for detecting faces in a bitmap.
@@ -204,9 +205,12 @@ class Emojifier {
 
         // Determine the size of the emoji to match the width of the face and preserve aspect ratio
         int newEmojiWidth = (int) (face.getWidth() * scaleFactor);
-        int newEmojiHeight = (int) (emojiBitmap.getHeight() *
-                newEmojiWidth / emojiBitmap.getWidth() * scaleFactor);
+//        int newEmojiHeight = (int) (emojiBitmap.getHeight() *
+//                newEmojiWidth / emojiBitmap.getWidth() * scaleFactor);
+        int newEmojiHeight = (int) (face.getHeight() * scaleFactor);
 
+        message = "face H: " + face.getHeight() + " W: " + face.getWidth()
+                + "\nemoji H: " + newEmojiHeight + " W: " + newEmojiWidth;
 
         // Scale the emoji
         emojiBitmap = Bitmap.createScaledBitmap(emojiBitmap, newEmojiWidth, newEmojiHeight, false);
@@ -215,7 +219,7 @@ class Emojifier {
         float emojiPositionX =
                 (face.getPosition().x + face.getWidth() / 2) - emojiBitmap.getWidth() / 2;
         float emojiPositionY =
-                (face.getPosition().y + face.getHeight() / 2) - emojiBitmap.getHeight() / 3;
+                (face.getPosition().y + face.getHeight() / 2) - emojiBitmap.getHeight() / 2.5f;
 
         // Create the canvas and draw the bitmaps to it
         Canvas canvas = new Canvas(resultBitmap);

@@ -189,6 +189,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Set the new bitmap to the ImageView
         mImageView.setImageBitmap(mResultsBitmap);
+        Toast.makeText(this, Emojifier.message, Toast.LENGTH_LONG).show();
     }
 
 
